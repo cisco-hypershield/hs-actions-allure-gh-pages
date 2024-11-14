@@ -8,12 +8,13 @@ on:
 jobs:
   release:
     runs-on: ubuntu-22.04
-    env: 
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
     steps:
       - uses: actions/checkout@v4
       # https://github.com/peaceiris/workflows/blob/main/create-release-npm/action.yml
       - name: Create release
+        env: 
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           TAG_NAME="${GITHUB_REF##refs/tags/}"
           echo "See [CHANGELOG.md](https://github.com/${GITHUB_REPOSITORY}/blob/${TAG_NAME}/CHANGELOG.md) for more details." > ./release_notes.md
