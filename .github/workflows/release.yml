@@ -9,7 +9,7 @@ jobs:
   release:
     runs-on: ubuntu-22.04
     env: 
-      token: ${{ secrets.GH_TOKEN }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       # https://github.com/peaceiris/workflows/blob/main/create-release-npm/action.yml
